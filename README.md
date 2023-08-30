@@ -1,3 +1,8 @@
+## ДЗ Подготовка базового образа VM при помощи Packer
+Полезные ссылки для потомков:
+```
+https://ru.hexlet.io/courses/intro_to_git/lessons/gitignore/theory_unit
+```
 ## ДЗ Основные сервисы Yandex Cloud
 ```
 testapp_IP = 84.201.132.119
