@@ -37,6 +37,46 @@ Command list:
   339  ansible app -m command -a 'rm -rf ~/reddit'
   340  ansible-playbook clone.yml
 ```
+## ДЗ №7 Принципы организации инфраструктурного кода и работа над инфраструктурой в команде на примере Terraform
+Что сделано:
+```
+1.Задал IP для инстанса с приложением в виде внешнего ресурса.
+2.Использовал созданный IP адрес в ресурсе VM сославшись на атрибуты ресурса, который этот IP создает.
+3.Структурировал ресурсы, создал 2 VM app и db.
+4.Создал 2 модуля app module и db module.
+5.Проверил работу модулей.
+6.Переиспользовал модули при создании prod и stage окружений
+7.Проверил конфигурации.
+```
+Command list:
+```
+  418  packer build -var-file=variables.json app.json
+  419  packer build -var-file=variables.json db.json
+  420  cd ..
+  421  cd terraform/
+  422  terraform plan
+  423  terraform apply
+  470  ssh -i ~/.ssh/ubuntu ubuntu@84.201.133.5
+  471  ssh -i ~/.ssh/ubuntu ubuntu@51.250.87.240
+  478  cd terraform/
+  490  terraform init
+  491  terraform apply
+  492  cd ..
+  493  cd stage/
+  494  terraform destroy
+  495  cd ..
+  496  cd prod/
+  497  terraform init
+  498  terraform apply
+  499  terraform destroy
+  500  terraform fmt
+  501  cd ..
+  502  cd stage/
+  503  terraform fmt
+  504  cd ..
+  505  terraform fmt
+
+```
 ## ДЗ Подготовка базового образа VM при помощи Packer
 Полезные ссылки для потомков:
 ```

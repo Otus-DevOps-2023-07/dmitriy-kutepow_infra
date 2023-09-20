@@ -15,7 +15,7 @@ provider "yandex" {
 }
 
 module "app" {
-  source                   = "./modules/app"
+  source                   = "../modules/app"
   service_account_key_file = var.service_account_key_file
   cloud_id                 = var.cloud_id
   ubuntu_private_key_path  = var.ubuntu_private_key_path
@@ -27,7 +27,7 @@ module "app" {
 }
 
 module "db" {
-  source                   = "./modules/db"
+  source                   = "../modules/db"
   service_account_key_file = var.service_account_key_file
   cloud_id                 = var.cloud_id
   ubuntu_private_key_path  = var.ubuntu_private_key_path
