@@ -1,8 +1,0 @@
-cloud_id                 = "b1gbge5ikpsdt55fi3km"
-folder_id                = "b1g0ge0imloo244ibiv1"
-zone                     = "ru-central1-a"
-image_id                 = "fd8kg8aolma16fpiaas9"
-public_key_path          = "~/.ssh/ubuntu.pub"
-subnet_id                = "e9bl4d4qu2ustjjng5se"
-service_account_key_file = "/home/dima/Документы/key.json"
-ubuntu_private_key_path  = "~/.ssh/ubuntu"
