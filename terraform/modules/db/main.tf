@@ -15,7 +15,7 @@ provider "yandex" {
 }
 
 resource "yandex_compute_instance" "db" {
-  name = "reddit-db"
+  name = "reddit-db-stage"
   zone = var.zone
 
   labels = {
