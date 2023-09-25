@@ -1,3 +1,82 @@
+## ДЗ №8 Управление конфигурацией. Знакомство с Ansible
+Что сделано:
+```
+1.Установлен Ansible
+2.Запущены VMs appserver и dbserver с помощью terraform
+3.Создан инвентори файл ansible/inventory
+4.Выполнена команда ping для хостов appserver и dbserver
+5.Установлены значения по умолчанию в конфигурационном файле ансибла ansible/ansible.cfg
+6.Проверена работу команд 'ruby -v' и 'bundler -v' на соответствующих хостах
+7.Написан и проверен простой плейбук ansible/clone.yml
+```
+Command list:
+```
+  316  cd terraform/
+  317  terraform show
+  318  terraform apply
+  319  cd ..
+  320  cd ansible/
+  321  ansible db -i ./inventory.yml -m ping
+  322  ansible db-app -i ./inventory.yml -m ping
+  323  ansible db -i ./inventory.yml -m ping
+  324  ansible app -i ./inventory.yml -m ping
+  325  ansible all -i ./inventory.yml -m ping
+  326  ansible app -m command -a 'ruby -v'
+  327  ansible app -m command -a 'ruby -v' -i inventory.yml
+  328  ansible app -m command -a 'bundler -v'  -i inventory.yml
+  329  ansible db -m command -a 'systemctl status mongod' -i inventory.yml
+  330  ansible db -m shell -a 'systemctl status mongod' -i inventory.yml
+  331  ansible db -m shell -a 'systemctl status mongod'
+  332  ansible db -m shell -a 'sudo systemctl status mongod'
+  333  ansible app -m command -a 'systemctl status mongod'  -i inventory.yml
+  334  ansible db -m systemd -a name=mongod -i inventory.yml
+  335  ansible db -m service -a name=mongod -i inventory.yml
+  336  ansible app -m apt -a name=git
+  337  ansible app -m git -a 'repo=https://github.com/express42/reddit.git dest=/home/appuser/reddit'
+  338  ansible-playbook clone.yml
+  339  ansible app -m command -a 'rm -rf ~/reddit'
+  340  ansible-playbook clone.yml
+```
+## ДЗ №7 Принципы организации инфраструктурного кода и работа над инфраструктурой в команде на примере Terraform
+Что сделано:
+```
+1.Задал IP для инстанса с приложением в виде внешнего ресурса.
+2.Использовал созданный IP адрес в ресурсе VM сославшись на атрибуты ресурса, который этот IP создает.
+3.Структурировал ресурсы, создал 2 VM app и db.
+4.Создал 2 модуля app module и db module.
+5.Проверил работу модулей.
+6.Переиспользовал модули при создании prod и stage окружений
+7.Проверил конфигурации.
+```
+Command list:
+```
+  418  packer build -var-file=variables.json app.json
+  419  packer build -var-file=variables.json db.json
+  420  cd ..
+  421  cd terraform/
+  422  terraform plan
+  423  terraform apply
+  470  ssh -i ~/.ssh/ubuntu ubuntu@84.201.133.5
+  471  ssh -i ~/.ssh/ubuntu ubuntu@51.250.87.240
+  478  cd terraform/
+  490  terraform init
+  491  terraform apply
+  492  cd ..
+  493  cd stage/
+  494  terraform destroy
+  495  cd ..
+  496  cd prod/
+  497  terraform init
+  498  terraform apply
+  499  terraform destroy
+  500  terraform fmt
+  501  cd ..
+  502  cd stage/
+  503  terraform fmt
+  504  cd ..
+  505  terraform fmt
+
+```
 ## ДЗ Подготовка базового образа VM при помощи Packer
 Полезные ссылки для потомков:
 ```

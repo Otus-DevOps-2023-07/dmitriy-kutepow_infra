@@ -25,11 +25,7 @@ variable "service_account_key_file" {
 variable "ubuntu_private_key_path" {
   description = "key.json"
 }
-variable "app_disk_image" {
-  description = "Disk image for reddit app"
-  default     = "fd88if2g1r9lm2vgeuio"
-}
-variable "db_disk_image" {
+variable db_disk_image {
   description = "Disk image for reddit db"
-  default     = "fd8qvde9ggr8ssqire0s"
+  default = "fd8qvde9ggr8ssqire0s"
 }
