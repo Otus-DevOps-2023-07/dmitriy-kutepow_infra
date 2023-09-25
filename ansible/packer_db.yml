@@ -1,9 +1,8 @@
 ---
 - name: Install MongoDB 3.2
   hosts: all
-  become: true
+  become: yes
   tasks:
-
   - name: Add APT key
     apt_key:
       id: EA312927
@@ -16,6 +15,7 @@
 
   - name: Install mongodb package
     apt:
+      allow_unauthenticated: yes
       name: mongodb-org
       state: present
 

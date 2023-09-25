@@ -1,3 +1,93 @@
+## ДЗ №9 Продолжение знакомства с Ansible: templates, handlers, dynamic inventory, vault, tags
+Что сделано:
+```
+1. Использовал плейбуки, хендлеры и шаблоны для конфигурации окружения и деплоя тестового приложения. Подход один плейбук, один сценарий (play)
+2. Использовал один плейбук, но много сценариев
+3. Использовал много плейбуков.
+4. Изменил провижн образов Packer на Ansible-плейбуки
+5. Протестировал на stage окружении.
+```
+Command list:
+```
+  422  packer build ./app.json variables.json
+  423  packer build -var-file=variables.json app.json
+  424  packer build -var-file=variables.json db.json
+  499  terraform init
+  500  terraform apply
+  501  terraform destroy
+  502  terraform fmt
+  573  ansible-playbook reddit_app.yml --check --limit db
+  582  ansible-playbook reddit_app.yml --check --limit db
+  583  ansible-playbook reddit_app.yml --limit db
+  584  ansible-playbook reddit_app.yml --check --limit app --tags app-tag
+  585  ansible-playbook reddit_app.yml --limit app --tags app-tag
+  586  ansible-playbook reddit_app.yml --check --limit app --tags deploy-tag
+  587  ansible-playbook reddit_app.yml --limit app --tags deploy-tag
+  588  ansible-playbook reddit_app.yml --check --limit app --tags deploy-tag
+  589  ssh -i ~/.ssh/ubuntu ubuntu@158.160.119.26
+  590  ansible-playbook reddit_app.yml --check --limit app --tags deploy-tag
+  591  ssh -i ~/.ssh/ubuntu ubuntu@158.160.119.26
+  592  ansible-playbook reddit_app.yml --limit app --tags deploy-tag
+  593  ssh -i ~/.ssh/ubuntu ubuntu@158.160.119.26
+  594  ssh -i ~/.ssh/ubuntu ubuntu@158.160.123.125
+  602  packer build -var-file=variables.json app.json
+  603  packer build -var-file=variables.json db.json
+  611  ansible-playbook reddit_app.yml --check --limit app --tags deploy-tag
+  612  ansible-playbook reddit_app.yml --limit app --tags deploy-tag
+  614  ansible-playbook reddit_app.yml --limit app --tags deploy-tag
+  621  ansible-playbook reddit_app.yml --limit app --tags deploy-tag
+  622  ssh -i ~/.ssh/ubuntu ubuntu@51.250.86.135
+  623  ansible-playbook reddit_app.yml --limit app --tags deploy-tag
+  624  ssh -i ~/.ssh/ubuntu ubuntu@
+  625  ansible-playbook reddit_app.yml --limit app --tags app-tag
+  626  ansible-playbook reddit_app.yml --limit app --tags deploy-tag
+  627  ansible-playbook reddit_app.yml --limit db
+  628  ansible-playbook reddit_app.yml --limit db-tag
+  629  ansible-playbook reddit_app.yml --limit app --tags db-tag
+  630  ansible-playbook reddit_app.yml --limit app --tags app-tag
+  631  ansible-playbook reddit_app.yml --limit app --tags deploy-tag
+  642  packer build -var-file=variables.json app.json
+  643  packer build -var-file=variables.json db.json
+  665  ansible-playbook reddit_app.yml --limit app --tags db-tag
+  666  ansible-playbook reddit_app.yml --limit db --tags db-tag
+  667  ansible-playbook reddit_app.yml --limit app --tags app-tag
+  668  ansible-playbook reddit_app.yml --limit app --tags deploy-tag
+  676  ansible-playbook reddit_app.yml --limit db --tags db-tag
+  677  ansible-playbook reddit_app.yml --limit app --tags app-tag
+  678  ansible-playbook reddit_app.yml --limit app --tags deploy-tag
+  686  ansible-playbook reddit_app.yml --limit db --tags db-tag
+  687  ansible-playbook reddit_app.yml --limit app --tags app-tag
+  688  ansible-playbook reddit_app.yml --limit app --tags deploy-tag
+  697  ansible-playbook reddit_app2.yml --tags db-tag --check
+  698  ansible-playbook reddit_app2.yml --tags db-tag
+  699  ansible-playbook reddit_app2.yml --tags app-tag --check
+  700  ansible-playbook reddit_app2.yml --tags app-tag
+  701  ansible-playbook reddit_app2.yml --tags deploy-tag --check
+  702  ansible-playbook reddit_app2.yml --tags deploy-tag
+  705  terraform destroy
+  706  terraform apply
+  707  ansible-playbook reddit_app2.yml --tags db-tag
+  710  ansible-playbook reddit_app2.yml --tags db-tag
+  711  ansible-playbook reddit_app2.yml --tags app-tag
+  712  ansible-playbook reddit_app2.yml --tags deploy-tag
+  715  terraform destroy
+  716  terraform apply
+  717  ansible-playbook site.yml --check
+  720  ansible-playbook site.yml --check
+  721  ansible-playbook site.yml
+  723  packer build -var-file=packer/variables.json packer/db.json
+  724  packer build -var-file=packer/variables.json packer/app.json
+  726  git add .
+  727  git commit -m 'add ansible-2'
+  729  git push --set-upstream origin ansible-2
+  736  packer build -var-file=packer/variables.json packer/app.json
+  738  packer build -var-file=packer/variables.json packer/app.json
+  739  packer build -var-file=packer/variables.json packer/db.json
+  740  packer build -var-file=packer/variables.json packer/app.json
+  741  packer build -var-file=packer/variables.json packer/db.json
+  751  ansible-playbook site.yml
+  753  ssh -i ~/.ssh/ubuntu ubuntu@158.160.122.9
+```
 ## ДЗ №8 Управление конфигурацией. Знакомство с Ansible
 Что сделано:
 ```

@@ -4,6 +4,12 @@
   become: true
   tasks:
 
+    - name: Install git
+      apt:
+        name: git
+        state: present
+        update_cache: yes
+
     - name: Fetch the latest version of application code
       git:
         repo: 'https://github.com/express42/reddit.git'
