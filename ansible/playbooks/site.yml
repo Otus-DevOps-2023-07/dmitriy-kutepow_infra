@@ -1,0 +1,14 @@
+---
+#- hosts: db
+#  become: yes
+#  roles:
+#    - db
+#
+#- hosts: app
+#  become: yes
+#  roles:
+#    - app
+#    - jdauphant.nginx
+#
+#- import_playbook: deploy.yml
+- import_playbook: users.yml

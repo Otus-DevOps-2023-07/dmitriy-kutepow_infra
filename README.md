@@ -1,3 +1,63 @@
+## ДЗ №10 Ansible роли, управление настройками нескольких окружений и best practices
+Что сделано:
+```
+1.Перенёс созданные плейбуки в раздельные роли
+2.Описал два окружения stage, prod
+3.Использовал коммьюнити роль nginx
+4.Использовал Ansible Vault для окружений stage, prod
+```
+Command list:
+```
+  797  git branch
+  798  git checkout ansible-3
+  799  git branch ansible-3
+  800  git checkout ansible-3
+  801  git branch
+  802  ansible-galaxy -h
+  804  ansible-galaxy init app
+  805  ansible-galaxy init db
+  806  tree db
+  807  sudo apt install tree
+  808  tree db
+  813  ansible-galaxy init
+  835  ansible-playbook site.yml --check
+  836  ansible-playbook site.yml
+  837  ansible-playbook -i environments/stage/inventory deploy.yml
+  838  ansible-playbook -i environments/stage/inventory.yml deploy.yml
+  839  ansible-playbook -i environments/stage/inventory deploy.yml
+  844  ansible-playbook playbooks/site.yml --check
+  847  ansible-playbook playbooks/site.yml --check
+  848  ansible-playbook playbooks/site.yml
+  857  ansible-playbook -i environments/prod/inventory playbooks/site.yml
+  859  ansible-playbook -i environments/prod/inventory playbooks/site.yml
+  863  ansible-playbook site.yml
+  864  ansible-playbook -i ./environments/prod/inventory ./playbooks/site.yml
+  867  ansible-playbook -i ./environments/prod/inventory ./playbooks/site.yml
+  868  ansible-playbook -i /home/dima/dmitriy-kutepow_infra/ansible/enviroments/prod/inventory /home/dima/dmitriy-kutepow_infra/ansible/playbooks/site.yml
+  877  ansible-playbook -i /home/dima/dmitriy-kutepow_infra/ansible/enviroments/prod/inventory /home/dima/dmitriy-kutepow_infra/ansible/playbooks/site.yml
+  886  ansible-playbook -i /home/dima/dmitriy-kutepow_infra/ansible/enviroments/prod/inventory /home/dima/dmitriy-kutepow_infra/ansible/playbooks/site.yml
+  890  ansible-playbook -i /home/dima/dmitriy-kutepow_infra/ansible/enviroments/prod/inventory /home/dima/dmitriy-kutepow_infra/ansible/playbooks/site.yml
+  893  ansible-playbook -i /home/dima/dmitriy-kutepow_infra/ansible/enviroments/prod/inventory /home/dima/dmitriy-kutepow_infra/ansible/playbooks/site.yml
+  894  ansible-galaxy install -r environments/stage/requirements.yml
+  895  ansible-galaxy install -r ./environments/stage/requirements.yml
+  896  ansible-galaxy install -r /home/dima/dmitriy-kutepow_infra/ansible/enviroments/stage/requirements.yml
+  906  ansible-galaxy install -r /home/dima/dmitriy-kutepow_infra/ansible/enviroments/stage/requirements.yml
+  907  ansible-playbook -i /home/dima/dmitriy-kutepow_infra/ansible/enviroments/stage/inventory /home/dima/dmitriy-kutepow_infra/ansible/playbooks/site.yml
+  910  ansible-playbook -i /home/dima/dmitriy-kutepow_infra/ansible/enviroments/stage/inventory /home/dima/dmitriy-kutepow_infra/ansible/playbooks/site.yml
+  914  ansible-vault encrypt /home/dima/dmitriy-kutepow_infra/ansible/enviroments/prod/credentials.yml
+  915  ansible-vault encrypt /home/dima/dmitriy-kutepow_infra/ansible/enviroments/stage/credentials.yml
+  919  ansible-playbook site.yml -check
+  920  ansible-playbook /home/dima/dmitriy-kutepow_infra/ansible/playbooks/site.yml -check
+  922  ansible-playbook /home/dima/dmitriy-kutepow_infra/ansible/playbooks/site.yml -check
+  924  ansible-playbook -i /home/dima/dmitriy-kutepow_infra/ansible/enviroments/stage/inventory /home/dima/dmitriy-kutepow_infra/ansible/playbooks/site.yml -check
+  925  ansible-playbook -i /home/dima/dmitriy-kutepow_infra/ansible/enviroments/stage/inventory /home/dima/dmitriy-kutepow_infra/ansible/playbooks/site.yml
+  926  sudo vi /home/dima/dmitriy-kutepow_infra/ansible/enviroments/stage/credentials.yml
+  928  ansible-vault encrypt /home/dima/dmitriy-kutepow_infra/ansible/enviroments/prod/credentials.yml
+  929  ansible-vault encrypt /home/dima/dmitriy-kutepow_infra/ansible/enviroments/stage/credentials.yml
+  930  ansible-playbook -i /home/dima/dmitriy-kutepow_infra/ansible/enviroments/stage/inventory /home/dima/dmitriy-kutepow_infra/ansible/playbooks/site.yml
+  931  ssh admin@62.84.112.228
+  933  ssh qauser@62.84.112.228
+```
 ## ДЗ №9 Продолжение знакомства с Ansible: templates, handlers, dynamic inventory, vault, tags
 Что сделано:
 ```
