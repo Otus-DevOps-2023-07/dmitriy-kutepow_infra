@@ -1,6 +1,6 @@
 #!/bin/bash
 sudo apt update
-sudo pkill -9 apt
+sleep 30s
 sudo apt install -y git
 git clone -b monolith https://github.com/express42/reddit.git
 cd reddit && bundle install

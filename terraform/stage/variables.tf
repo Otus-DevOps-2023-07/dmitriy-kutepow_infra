@@ -27,9 +27,9 @@ variable "ubuntu_private_key_path" {
 }
 variable "app_disk_image" {
   description = "Disk image for reddit app"
-  default     = "fd88if2g1r9lm2vgeuio"
+  default     = "fd8etjdb7dla20tbv2et"
 }
 variable "db_disk_image" {
   description = "Disk image for reddit db"
-  default     = "fd8qvde9ggr8ssqire0s"
+  default     = "fd81f9ur1lpp6qv8jkc7"
 }
